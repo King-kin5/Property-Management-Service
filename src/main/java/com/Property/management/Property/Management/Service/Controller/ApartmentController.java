@@ -1,6 +1,8 @@
 package com.Property.management.Property.Management.Service.Controller;
 
 import com.Property.management.Property.Management.Service.Model.Apartment;
+import com.Property.management.Property.Management.Service.Request.ApartmentRequest;
+import com.Property.management.Property.Management.Service.Response.ApartmentResponse;
 import com.Property.management.Property.Management.Service.Service.ApartmentService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -23,8 +25,8 @@ public class ApartmentController {
 
 
     @RequestMapping(method = RequestMethod.POST,value = "/apartments")
-    public Apartment registerApartment(@RequestBody Apartment apartment) {
-        return apartmentService.registerApartment(apartment);
+    public ApartmentResponse registerApartment(@RequestBody ApartmentRequest request) {
+        return apartmentService.registerApartment(request);
     }
 
     @RequestMapping(method = RequestMethod.GET,value = "/apartments")

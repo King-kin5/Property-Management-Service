@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/User")
+@RequestMapping("/v1/user")
 public class UserController {
     public final UserService service;
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
