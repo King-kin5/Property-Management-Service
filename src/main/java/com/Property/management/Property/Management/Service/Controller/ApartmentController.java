@@ -7,10 +7,7 @@ import com.Property.management.Property.Management.Service.Service.ApartmentServ
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,6 +31,9 @@ public class ApartmentController {
         logger.info("Getting apartments................");
         return apartmentService.getAllApartments();
     }
-
+    @RequestMapping(method = RequestMethod.POST,value = "/{apartmentId}/rent")
+    public ApartmentResponse rentApartment(@PathVariable ("apartmentId") Long apartmentId, @RequestBody ApartmentRequest request) {
+        return apartmentService.rentApartment(apartmentId,request);
+    }
 
 }
