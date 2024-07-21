@@ -18,6 +18,7 @@ public class Apartment {
     private String address;
     private String name;
     private Long rooms;
+    private Long businessId;
     private boolean available;
     private boolean occupied;
     private LocalDateTime endDate;
@@ -45,6 +46,12 @@ public class Apartment {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public Long businessId(){
+        return businessId;
+    }
+    public void setBusiness(Long businessId){
+        this.businessId=businessId;
     }
 
     public Long getRooms() {

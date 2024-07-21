@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ApartmentService {
     private final ApartmentRepository apartmentRepository;
+    private final BusinessService businessService;
 
     public ApartmentResponse registerApartment(ApartmentRequest request) {
         Apartment apartment=new Apartment();
@@ -23,11 +24,15 @@ public class ApartmentService {
                 response.setDescription("MAKE SURE ALL FIELDS ARE FILLED");
                 return response;
             }
-
+            if (!businessService.existsById(request.businessId())) {
+                response.setDescription("Business ID does not exist");
+                return response;
+            }
             apartment.setAddress(request.address());
             apartment.setName(request.name());
             apartment.setRooms(request.rooms());
             apartment.setAvailable(true);
+            apartment.setBusinessId(request.businessId());
             apartment.setOccupied(false);
 
             apartmentRepository.save(apartment);

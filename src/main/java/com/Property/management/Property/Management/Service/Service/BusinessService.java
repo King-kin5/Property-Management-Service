@@ -52,5 +52,7 @@ public class BusinessService {
             return null;
         }
     }
-
+    public boolean existsById(Long businessId) {
+        return businessRepository.existsById(businessId);
+    }
 }

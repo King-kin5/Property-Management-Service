@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 public record ApartmentRequest(
          String name,
          String address,
+         Long businessId,
          Long rooms,
          LocalDateTime endDate
 ) {
+
 }
